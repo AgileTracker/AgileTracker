@@ -28,7 +28,7 @@ Equipes gastam **$40-60/usuário/mês** em múltiplas ferramentas (Jira + Lucidc
 
 **AgileTracker oferece:**
 - ✅ Tudo integrado em uma plataforma
-- ✅ 60% mais barato ($8-12/usuário/mês)
+- ✅ De graça
 - ✅ Rastreabilidade total (diagrama → story → código)
 - ✅ Sincronização automática entre camadas
 
