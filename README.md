@@ -1,523 +1,721 @@
-# 🚀 AgileTracker MVP - Plataforma Unificada de Gestão Ágil
+# 🏗️ ArchFlow MVP - Architecture-First Project Management
 
-> **Gestão ágil, diagramação técnica e modelagem de dados integrados em uma única plataforma colaborativa.**
+> **A única ferramenta ágil que entende arquitetura de software, não só tasks.**
+
+Integração nativa de **arquitetura de software**, **gestão ágil Scrumban** e **rastreabilidade completa** em uma plataforma que desenvolvedores realmente querem usar.
 
 ---
 
 ## 📋 Sumário
 
-- [Visão Geral do MVP](#-visão-geral-do-mvp)
-- [O Problema](#-o-problema)
+- [O Problema Real](#-o-problema-real)
 - [Nossa Solução](#-nossa-solução)
-- [Diferenciais Competitivos](#-diferenciais-competitivos)
+- [5 Pilares Diferenciais](#-5-pilares-diferenciais)
 - [Features do MVP](#-features-do-mvp)
-- [Impacto e Relevância](#-impacto-e-relevância)
-- [Viabilidade de Implementação](#-viabilidade-de-implementação)
+- [Por que Scrumban?](#-por-que-scrumban)
+- [Impacto Esperado](#-impacto-esperado)
 - [Roadmap MVP](#-roadmap-mvp)
 - [Stack Tecnológica](#-stack-tecnológica)
 
 ---
 
-## 🎯 Visão Geral do MVP
+## 🔥 O Problema Real
 
-**AgileTracker** elimina a fragmentação de ferramentas no desenvolvimento de software, integrando **gestão ágil (Scrum/Kanban)**, **diagramação técnica (UML)** e **modelagem de banco de dados** em um único ambiente com sincronização automática.
+### Desenvolvedores odeiam ferramentas de gestão ágil
 
-### Por que AgileTracker?
+**Por quê?**
+```
+❌ Jira é lento, burocrático, não entende código
+❌ Decisões arquiteturais ficam perdidas no Confluence
+❌ Diagramas no Lucidchart ficam desatualizados
+❌ Schema do banco no dbdiagram não sincroniza com nada
+❌ ADRs são arquivos .md esquecidos no repo
+❌ Ninguém sabe POR QUE algo foi feito daquele jeito
+```
 
-Equipes gastam **$40-60/usuário/mês** em múltiplas ferramentas (Jira + Lucidchart + dbdiagram.io + Confluence) e perdem **15-20% do tempo** trocando entre elas. 
-
-**AgileTracker oferece:**
-- ✅ Tudo integrado em uma plataforma
-- ✅ De graça
-- ✅ Rastreabilidade total (diagrama → story → código)
-- ✅ Sincronização automática entre camadas
-
-**Diferencial killer:** Quando você move um card no Kanban, a user story atualiza automaticamente. Quando você cria um diagrama, ele fica vinculado à story. Quando você modela o banco, gera SQL pronto para usar.
-
----
-
-## 🔥 O Problema
-
-### Fragmentação Custa Tempo e Dinheiro
+### O custo da fragmentação
 
 **Cenário atual:**
 ```
-Gestão Ágil → Jira ($15-20/usuário/mês)
-Diagramas → Lucidchart ($7-9/usuário/mês)
+Gestão Ágil → Jira ($20/usuário/mês)
+Decisões → Confluence ($10/usuário/mês)
+Diagramas → Lucidchart ($9/usuário/mês)
 Modelagem DB → dbdiagram.io ($9/mês)
-Documentação → Confluence ($5-10/usuário/mês)
+Monitoramento → Ferramentas separadas
 
-💰 Total: $43-61/usuário/mês
-⏱️ Overhead: 1.6 horas/dia trocando entre ferramentas
-📊 Problema: Diagramas desatualizados, documentação obsoleta
+💰 Total: $48-60/usuário/mês
+⏱️ 20% do tempo perdido em context switching
+📊 Documentação sempre desatualizada
+🤯 Novo dev leva 4-8 semanas para entender o sistema
 ```
 
-### Impactos Reais
+### A questão central
 
-| Stakeholder | Problema |
-|-------------|----------|
-| **Desenvolvedores** | 20% do tempo perdido em context switching |
-| **Scrum Masters** | Dados dispersos dificultam acompanhamento |
-| **Startups** | $300-600/mês inviável para times pequenos |
-| **Estudantes** | Barreiras financeiras para praticar metodologias profissionais |
-
-### A Questão Central
-
-**Como uma equipe pode trabalhar de forma fluida se suas ferramentas não conversam entre si?**
+**Como você pode construir software de qualidade se suas ferramentas não entendem arquitetura?**
 
 ---
 
 ## 💡 Nossa Solução
 
-### Integração Contextual Inteligente
+### Architecture-First, Agile by Design
+
+**ArchFlow** coloca arquitetura de software no centro da gestão ágil, com rastreabilidade total do conceito ao deploy.
 
 ```
-Epic → User Story → Diagrama UML → Modelagem DB → Card Kanban → Sprint
-      ↑_______________________________________________|
-                  Tudo sincronizado automaticamente
+Decisão Arquitetural (ADR)
+    ↓
+Diagrama C4 / Event Storming
+    ↓
+User Story
+    ↓
+Database Schema
+    ↓
+Card Kanban / Sprint
+    ↓
+Commit → PR → Deploy → Incident
+    ↑________________________________|
+         Tudo rastreável e versionado
 ```
 
-### Como Funciona na Prática
+### Como funciona na prática
 
-**1. Product Owner cria User Story:**
+**1. Arquiteto documenta decisão:**
 ```
-Story: "Implementar autenticação de usuários"
-├─ Critérios de aceitação
-├─ Story points: 8
-└─ Botão: "Criar Diagrama" (abre editor no contexto)
+ADR #5: "Usar CQRS para separar leitura/escrita"
+├─ Contexto: Sistema com alta carga de leitura
+├─ Decisão: Implementar CQRS com Event Sourcing
+├─ Consequências: +Escalabilidade, +Complexidade
+└─ Status: Aceito (2025-01-15)
 ```
 
-**2. Arquiteto cria diagramas vinculados:**
-- Use Case Diagram do fluxo de login
-- Class Diagram das entidades (User, Session, Token)
-- Sequence Diagram da autenticação
+**2. Cria diagramas C4 automaticamente vinculados:**
+- Context Diagram: Sistema no ecossistema
+- Container Diagram: API, Workers, Databases
+- Component Diagram: Command/Query handlers
+- Code Diagram: Classes específicas
 
-**3. DBA modela banco de dados:**
-- Cria tabela `users` visualmente
-- Define colunas e relacionamentos
-- Clica "Gerar SQL" → Recebe script CREATE TABLE pronto
-- Clica "Gerar Migration .NET" → Recebe arquivo de migration
+**3. Developer cria stories no contexto:**
+```
+Story: "Implementar Command Handler para CreateOrder"
+├─ Vinculada a: ADR #5, Container Diagram v2.3
+├─ Aceita/Rejeita: Baseado em decisões arquiteturais
+└─ Schema necessário: Tabela `orders_events`
+```
 
-**4. Developer executa no Sprint:**
-- Arrasta story do backlog para Sprint 5
-- Cria card no Kanban vinculado à story
-- Move card: To Do → In Progress → Code Review → Done
-- Sistema atualiza automaticamente:
-  - ✅ Status da story → "Done"
-  - ✅ Dashboard do sprint → 8 story points concluídos
-  - ✅ Notifica Product Owner
+**4. DBA modela no contexto da story:**
+- ERD visual da tabela `orders_events`
+- Clica "Gerar Migration .NET" → Código pronto
+- Migration versionada e vinculada à story
 
-### Resultado
+**5. Developer executa com contexto total:**
+```
+Kanban Board mostra:
+├─ Card "Create Order Command"
+├─ 📐 ADR #5 vinculado (1 clique para ler)
+├─ 🎨 Diagrama C4 atualizado (v2.3)
+├─ 🗄️ Schema criado (migration #42)
+└─ ✅ Testes de aceitação gerados por IA
+```
 
-**Zero retrabalho. Zero inconsistência. Uma única fonte da verdade.**
+**Resultado:** Zero perda de contexto. Zero documentação obsoleta. Uma fonte da verdade.
 
 ---
 
-## 🌟 Diferenciais Competitivos
+## 🌟 5 Pilares Diferenciais
 
-### 1. 🎨 Diagramas com Rastreabilidade Total
+### 1. 🏛️ Architecture-First Project Management
 
-**Problema dos concorrentes:** Lucidchart não sabe que um diagrama está vinculado a uma story do Jira. Quando o código muda, o diagrama fica desatualizado.
+**O que ninguém mais tem:**
 
-**Nossa solução:**
-```
-Diagrama v1.0 (Sprint 1) → Story #42 "Criar autenticação"
-Diagrama v2.0 (Sprint 5) → Story #87 "Adicionar OAuth"
-```
-
-- Versionamento automático a cada alteração
-- Histórico completo de decisões arquiteturais
-- Exportação PNG/SVG com metadados
-- Comparação visual entre versões (diff)
-
-**Impacto:** Novo membro entende evolução do sistema em 1 dia (vs 2 semanas).
-
----
-
-### 2. 🗄️ Modelagem de Banco → Código Automático
-
-**Problema dos concorrentes:** dbdiagram.io gera SQL, mas não está integrado ao projeto. DBA cria modelo separado, dev implementa separado, não há ponte.
-
-**Nossa solução:**
-- Editor visual drag-n-drop de tabelas
-- Relacionamentos (1:1, 1:N, N:N) com ações CASCADE/SET NULL
-- **Gera SQL puro:** Scripts CREATE TABLE otimizados
-- **Gera migrations:** .NET EF Core, Sequelize, Django
-- **Versionamento de schema:** Compare v1.0 vs v2.0 do banco
-- **Vinculação com stories:** "Story #67 criou tabela `orders`"
+#### **Architecture Decision Records (ADR) Integrados**
+- ADRs como cidadãos de primeira classe (não arquivos .md perdidos)
+- Versionamento automático de decisões
+- Timeline de decisões por projeto/epic
+- Vinculação ADR ↔ Story ↔ Commit
+- Templates (Michaël Nygard, Y-Statements, MADR)
+- Status workflow: Proposed → Accepted → Deprecated → Superseded
+- Busca semântica: "Decisões sobre cache nos últimos 6 meses"
 
 **Exemplo real:**
 ```
-Dev abre modelagem → Adiciona coluna `avatar_url` em `users`
-→ Clica "Gerar Migration .NET"
-→ Recebe arquivo 20250102_AddAvatarToUsers.cs pronto
-→ Roda: dotnet ef database update
+ADR #12: "Migrar de REST para GraphQL"
+├─ Proposto: 2025-01-10 (Sprint 8)
+├─ Supersede: ADR #3 (REST API design)
+├─ Stories afetadas: 23 (lista todas)
+├─ Impact analysis: 8 componentes afetados
+└─ Implementado em: Sprint 9-11
 ```
 
-**Impacto:** 80% mais rápido que escrever SQL manualmente. Zero divergência entre modelo e código.
+#### **C4 Model Diagrams Nativos**
+- Editor visual para todos os 4 níveis (Context, Container, Component, Code)
+- Auto-geração parcial via IA (analisa código e sugere estrutura)
+- Versionamento por sprint (v1.0, v1.1, v2.0)
+- Diff visual entre versões
+- Exportação para draw.io, PNG, SVG, Mermaid
+- Sincronização bidirecional: código muda → diagrama atualiza
+
+**Exemplo real:**
+```
+Sprint 5 fecha → System snapshot
+├─ Container Diagram v1.5 (3 novos microservices)
+├─ Component Diagram v2.1 (CQRS handlers adicionados)
+└─ Comparação automática: v1.4 → v1.5 (highlights)
+```
+
+#### **Event Storming Digital**
+- Board colaborativo estilo Miro, mas com contexto
+- Eventos de domínio vinculados a stories
+- Agregados mapeados para classes/tabelas
+- Bounded contexts viram repos/services
+- Exportação para código (scaffolding)
+
+**Por que isso importa:**
+> "No Jira, arquitetura é um link para o Confluence que ninguém atualiza. No ArchFlow, arquitetura **É** o projeto."
 
 ---
 
-### 3. 🔄 Sincronização Kanban ↔ Backlog
+### 2. 🗄️ Database Schema como Cidadão de Primeira Classe
 
-**Problema dos concorrentes:** No Jira, Kanban é apenas uma "view". Mover card não desencadeia inteligência.
+**O que ninguém mais tem:**
 
-**Nossa solução:**
+#### **ERD Visual → Código Automático**
+- Editor drag-n-drop de tabelas/colunas/relacionamentos
+- **Gera SQL otimizado** (PostgreSQL, MySQL, SQL Server)
+- **Gera Migrations**: .NET EF Core, Sequelize, Django, Prisma
+- **Gera Entities**: Classes C#, TypeScript interfaces, Python models
+- Reverse engineering: Importa schema existente → Diagrama
+- Diff de schemas: v1.0 → v2.0 (o que mudou?)
+
+**Exemplo real:**
 ```
-Dev move card "Login API" para coluna "Done"
+Dev adiciona coluna `avatar_url` na tabela `users`
 ↓
-Sistema detecta automaticamente:
-- Card vinculado à Story #42
-- Story faz parte do Epic "Autenticação"
-- Epic tem 4 stories, agora 3 concluídas
-
-Ações automáticas:
-✅ Story #42 → status "Done"
-✅ Notifica PO: "75% do Epic Autenticação concluído"
-✅ Atualiza velocity no dashboard
-✅ Registra para retrospectiva
+ArchFlow gera automaticamente:
+├─ SQL: ALTER TABLE users ADD COLUMN avatar_url VARCHAR(500);
+├─ Migration .NET: 20250115_AddAvatarToUsers.cs
+├─ Entity: public string AvatarUrl { get; set; }
+└─ TypeScript: avatarUrl?: string;
 ```
 
-**Impacto:** PO vê progresso real sem atualização manual. Zero inconsistência.
+#### **Versionamento de Schema por Sprint**
+```
+Sprint 3: Schema v1.0 (5 tabelas)
+Sprint 8: Schema v2.0 (+ tabela orders, + índices)
+Sprint 12: Schema v3.0 (refactor: orders → order_events)
+```
+- Cada versão vinculada às stories que a criaram
+- Rollback visual (voltar para schema anterior)
+- Auditoria: "Quem criou a coluna payment_method?"
+
+#### **Smart Constraints & Validations**
+- Define constraint no ERD → Gera código de validação
+- Exemplo: `age INT CHECK (age >= 18)` → Validation attribute em C#
+- Foreign keys → Navigation properties automáticas
+
+**Por que isso importa:**
+> "No dbdiagram, você cria um modelo bonito mas ele vira decoração. No ArchFlow, o modelo **É** o código."
 
 ---
 
-### 4. 💰 Custo-Benefício Disruptivo
+### 3. 🤖 IA Contextual Arquitetural
 
-| Feature | AgileTracker MVP | Jira + Ferramentas Externas |
-|---------|------------------|------------------------------|
-| Gestão Ágil | ✅ | ✅ Jira ($20/mês) |
-| Diagramas UML | ✅ Integrado | ❌ Lucidchart ($9/mês) |
-| Modelagem DB | ✅ Integrado | ❌ dbdiagram.io ($9/mês) |
-| Rastreabilidade | ✅ Nativa | ❌ Manual |
-| **Custo total** | **$8-12/mês** | **$43-61/mês** |
+**O que ninguém mais tem:**
 
-**💰 Economia de 60-75% + eliminação de context switching.**
+Não é chatbot genérico. É IA que **entende seu código + domínio + backlog**.
+
+#### **Autocomplete Inteligente de Stories**
+```
+Dev digita: "Como usuário, eu quero..."
+
+IA sugere (baseado no contexto do projeto):
+✅ "...fazer login com OAuth2 Google"
+   ├─ Detecta ADR #7 (autenticação)
+   ├─ Vê que project já usa OAuth em outra feature
+   └─ Gera critérios de aceitação + testes
+
+❌ NÃO sugere coisas aleatórias como ChatGPT
+```
+
+#### **Predição de Riscos Arquiteturais**
+```
+Story: "Adicionar busca full-text em comments"
+
+IA analisa:
+├─ Tabela `comments` tem 2M+ registros
+├─ Queries atuais já lentas (log analysis)
+├─ ADR #4 proíbe queries pesadas no SQL principal
+└─ ⚠️ RISCO: Viola decisão arquitetural
+
+Sugestão da IA:
+✅ "Criar índice full-text"
+✅ "Usar Elasticsearch (conforme ADR #4)"
+❌ "Query direta no PostgreSQL"
+```
+
+#### **Detecção de Dependências Implícitas**
+```
+Story: "Mudar formato de email de user_id@domain para UUID"
+
+IA detecta automaticamente:
+⚠️ 12 outras stories dependem do formato atual
+⚠️ 3 APIs externas consomem esse campo
+⚠️ Migration complexa (2M registros)
+
+Sugestão:
+├─ Epic "Email Format Migration" (6 stories)
+├─ Feature flag para rollout gradual
+└─ Effort: 34 story points (não 5)
+```
+
+#### **Geração Contextual de Código**
+```
+Story: "Endpoint POST /api/orders"
+Dev clica: "Generate boilerplate"
+
+IA gera baseado em:
+├─ ADR #5 (CQRS pattern)
+├─ Schema da tabela `orders`
+├─ Padrão usado em outras APIs do projeto
+└─ Security constraints (autenticação requerida)
+
+Output:
+✅ Controller com validação
+✅ Command + Handler (CQRS)
+✅ Unit tests (90% cobertura)
+✅ Integration test (API call)
+```
+
+**Por que isso importa:**
+> "GitHub Copilot gera código genérico. ArchFlow IA gera código que **respeita suas decisões arquiteturais**."
+
+---
+
+### 4. 🔗 Full Traceability em Um Lugar
+
+**O que ninguém mais tem:**
+
+Rastreabilidade de **ponta a ponta** sem sair da plataforma.
+
+#### **Forward Traceability (Ideia → Deploy)**
+```
+ADR #8: "Usar Redis para cache"
+    ↓
+Diagrama C4: Redis como Container
+    ↓
+Epic: "Implementar Cache Layer"
+    ↓
+Story #45: "Cache de produtos"
+    ↓
+Schema: Tabela `cache_metadata`
+    ↓
+Card Kanban: "Implement Redis client"
+    ↓
+Commit: 3fa8... "feat: add Redis caching"
+    ↓
+PR #123: Merged (2 reviews)
+    ↓
+Deploy: Production (2025-01-20)
+    ↓
+Incident #5: Cache invalidation bug
+    ↑__________________________________|
+         Clique em qualquer item → vê conexão completa
+```
+
+#### **Backward Traceability (Problema → Causa Raiz)**
+```
+Incident: "API lenta (timeout 30s)"
+
+ArchFlow mostra:
+├─ Deploy que causou: v2.3.1 (2025-01-18)
+├─ PR que entrou: #119 "Optimize queries"
+├─ Commits: 5 (lista todos)
+├─ Story: #67 "Improve performance"
+├─ Sprint: 12 ("Performance Sprint")
+└─ ADR violado: #11 (N+1 queries proibidas)
+
+Root cause em 2 minutos (vs 2 horas no Jira + Git + Logs)
+```
+
+#### **Impact Analysis Automático**
+```
+Dev quer mudar: Schema da tabela `users`
+
+ArchFlow mostra impacto:
+├─ 23 stories afetadas
+├─ 8 diagramas que referenciam `users`
+├─ 4 ADRs que mencionam autenticação
+├─ 156 commits que tocaram `users`
+├─ 12 APIs que retornam `UserDto`
+└─ ⚠️ 3 deploys recentes tiveram bugs relacionados
+
+Decisão informada: "Criar nova tabela `user_profiles` (menos arriscado)"
+```
+
+#### **Timeline Visual**
+```
+Janeiro 2025: Project "E-commerce"
+│
+├─ Sprint 1-3: Foundation
+│   ├─ ADR #1-5 (decisões core)
+│   ├─ C4 Context Diagram v1.0
+│   └─ 12 stories (auth, produtos)
+│
+├─ Sprint 4-6: Features
+│   ├─ ADR #6 (CQRS)
+│   ├─ Schema v2.0 (+3 tabelas)
+│   ├─ 18 stories (carrinho, pagamento)
+│   └─ Deploy v1.0 (production)
+│
+└─ Sprint 7: Incident!
+    ├─ Incident #3 (performance)
+    ├─ ADR #7 (Redis cache)
+    └─ Hotfix v1.0.1
+```
+
+**Por que isso importa:**
+> "No Jira, você gerencia tasks. No ArchFlow, você gerencia **evolução de software**."
+
+---
+
+### 5. 🚀 Developer Experience Superior
+
+**O que ninguém mais tem:**
+
+Ferramentas que desenvolvedores **querem** usar, não são **forçados** a usar.
+
+#### **CLI Tool (archflow-cli)**
+```bash
+# Criar story via terminal (sem abrir browser)
+$ archflow story create "Add OAuth login" --epic auth --points 5
+
+# Ver sprint atual
+$ archflow sprint current
+Sprint 12: "Performance Improvements"
+├─ Stories: 8 (6 done, 2 in progress)
+├─ Velocity: 34/40 points
+└─ Ends: 2025-01-25 (3 days left)
+
+# Mover card (integração com git hooks)
+$ archflow card move 42 --to "code-review"
+✅ Card #42 moved to "Code Review"
+✅ Story #12 status updated
+✅ Scrum Master notified
+
+# Criar ADR diretamente do terminal
+$ archflow adr create "Use PostgreSQL over MySQL"
+✅ ADR #13 created (status: proposed)
+📝 Opening editor for details...
+```
+
+#### **IDE Extensions**
+**VS Code Extension:**
+```typescript
+// Inline card info no código
+function createOrder(data: CreateOrderDto) { // 📌 Card #87 (In Progress)
+  // TODO: Validate payment method // 💡 ArchFlow: Story #89 pending
+  return this.orderService.create(data);
+}
+
+// Atalhos:
+// Ctrl+Shift+A: Open related ADR
+// Ctrl+Shift+D: Open C4 diagram
+// Ctrl+Shift+S: Open story in browser
+```
+
+**JetBrains Plugin (IntelliJ, Rider, WebStorm):**
+- Sidebar com cards do sprint atual
+- Drag-n-drop cards diretamente na IDE
+- Code actions: "Create story from TODO comment"
+
+#### **Git Hooks Integration**
+```bash
+# Commit message validation automática
+$ git commit -m "feat: add Redis cache"
+⚠️ Warning: No story reference found
+
+$ git commit -m "feat: add Redis cache [STORY-45]"
+✅ Commit linked to Story #45
+✅ Story updated: 1 commit added
+✅ ADR #8 context added to commit metadata
+```
+
+**Smart branch naming:**
+```bash
+$ archflow branch create 45
+✅ Created: feature/STORY-45-add-redis-cache
+✅ Linked to Story #45
+✅ Pre-push hook: Auto-move card to "Code Review"
+```
+
+#### **Webhooks & Integrations**
+```yaml
+# .archflow.yml
+on:
+  card.moved:
+    to: "Done"
+    action: 
+      - trigger_ci: production_deploy
+      - notify_slack: "#releases"
+      - update_story: status="completed"
+```
+
+#### **Developer Dashboard**
+```
+Meu Dia (Daily Standup View)
+├─ 🎯 Ontem: 2 cards concluídos
+├─ 🚀 Hoje: 3 cards em andamento
+│   ├─ Card #42: Code review pendente (2h)
+│   ├─ Card #56: Blocked (aguarda DBA) (8h)
+│   └─ Card #71: In Progress (3h)
+├─ ⚠️ Impedimentos: 1
+│   └─ "Schema `orders_v2` não aprovado"
+└─ 📊 Burndown: 23% abaixo do ideal (action needed!)
+```
+
+#### **Keyboard-First Navigation**
+```
+Cmd+K: Quick actions ("move card 42 to done")
+Cmd+Shift+F: Global search (stories, ADRs, diagrams)
+Cmd+Shift+D: Open diagram
+Cmd+Shift+A: Open ADR
+J/K: Navigate cards (vim-style)
+Enter: Open detail
+Esc: Close modal
+```
+
+**Por que isso importa:**
+> "Jira força você a abrir browser e clicar 10 vezes. ArchFlow deixa você trabalhar do terminal/IDE como um dev de verdade."
 
 ---
 
 ## 🎯 Features do MVP
 
-### 1. Autenticação e Controle de Acesso (RBAC)
+### Core Ágil (Necessário, não inovador)
 
-**O que faz:**
-- Login/logout com JWT e Refresh Tokens
-- 4 papéis por projeto: Owner, Scrum Master, Product Owner, Developer
-- Permissões granulares (quem pode criar sprints, deletar projetos, etc.)
-- Multi-tenant (usuário participa de N projetos com papéis diferentes)
-- Auditoria completa (quem fez o quê, quando)
+#### 1. Autenticação & RBAC
+- Login/logout JWT + Refresh tokens
+- 4 papéis: Owner, Scrum Master, PO, Developer
+- Multi-tenant (1 user, N projects)
 
-**Por que é crítico:**
-Sem isso, não é multi-user. Sem RBAC, não dá para usar em empresas.
+#### 2. Product Backlog (Scrumban)
+- Epics → User Stories
+- Story points, priorização drag-n-drop
+- Critérios de aceitação
+- Dependências entre stories
 
-**Implementação:**
-- JWT com claims de permissão por projeto
-- Matriz de permissões (Owner tem todas, Dev tem limitadas)
-- Interceptor de auditoria registra todas as ações
+#### 3. Sprints
+- Criar sprint (datas, goal, capacidade)
+- Sprint planning (backlog → sprint)
+- Fechar sprint (move incompletos)
+- Apenas 1 sprint ativo por vez
 
----
+#### 4. Kanban Board
+- Boards customizáveis (colunas, WIP limits)
+- Cards drag-n-drop (biblioteca dnd-kit)
+- Swimlanes (por assignee/prioridade)
+- Labels, comentários, anexos
 
-### 2. Product Backlog (Epics → User Stories)
-
-**O que faz:**
-- Hierarquia: Epics agrupam User Stories relacionadas
-- User Stories com: persona, critérios de aceitação, story points, prioridade
-- Priorização drag-n-drop (MoSCoW: Must/Should/Could/Won't)
-- Dependências visuais entre stories
-- Filtros por epic, status, assignee
-
-**Por que é crítico:**
-É o coração do Scrum. Product Owner precisa organizar e priorizar requisitos.
-
-**Implementação:**
-- Entidade Epic (nome, valor de negócio, prioridade)
-- Entidade UserStory (vinculada a Epic, com value objects para StoryPoints)
-- UI com drag-n-drop para reordenação
+#### 5. Dashboard Básico
+- Burndown chart em tempo real
+- Velocity histórica
+- Distribuição de trabalho
+- Bloqueios ativos (cards > 3 dias)
 
 ---
 
-### 3. Sprints Completos
+### Diferenciais (MVP Mínimo)
 
-**O que faz:**
-- Criar sprint (nome, meta, datas, capacidade em horas)
-- Sprint Planning: arrastar stories do backlog para o sprint
-- Cálculo automático: story points vs capacidade disponível
-- Sprint ativo: apenas 1 por projeto por vez
-- Fechar sprint: move cards incompletos para próximo sprint
+#### 6. Architecture Decision Records
+- Editor Markdown com templates
+- Status workflow (Proposed → Accepted)
+- Versionamento automático
+- Vinculação ADR ↔ Story (1 clique)
+- Timeline de decisões
 
-**Por que é crítico:**
-Sem sprints, não é Scrum. É só Kanban glorificado.
-
-**Implementação:**
-- Entidade Sprint com estados (Planned → Active → Completed)
-- Validação: só adicionar stories em sprint "Planned"
-- SprintCalculator service calcula capacity e velocity
-
----
-
-### 4. Kanban Board Avançado
-
-**O que faz:**
-- Boards por projeto ou por sprint
-- Colunas customizáveis (nome, cor, WIP limit, flag "done")
-- Cards com drag-n-drop entre colunas (biblioteca dnd-kit)
-- Cards vinculados a stories OU independentes (tasks técnicas)
-- Swimlanes (agrupamento por assignee ou prioridade)
-- Labels coloridos, anexos, comentários
-
-**Por que é crítico:**
-Visualização do trabalho. Sem Kanban, dev perde contexto.
-
-**Implementação:**
-- Entidade Board → Column → Card
-- Validação de WIP limit ao mover
-- Domain Event "CardMoved" dispara sincronização
-
----
-
-### 5. Dashboard Analítico
-
-**O que faz:**
-- Progresso do sprint (% concluído, stories done/total)
-- Burndown chart em tempo real (pontos restantes por dia)
-- Bloqueios ativos (cards parados > 3 dias)
-- Distribuição de trabalho (cards por membro)
-- Velocity histórica (média de story points por sprint)
-
-**Por que é crítico:**
-Scrum Master precisa detectar problemas cedo. "Sprint em risco?" → Ação imediata.
-
-**Implementação:**
-- CQRS: Queries otimizadas para leitura
-- Cache Redis (TTL 5 min) para métricas agregadas
-- SignalR para atualização em tempo real
-
----
-
-### 6. Diagramas UML Integrados
-
-**O que faz:**
-- Editor visual para Use Case Diagrams (atores, casos de uso)
-- Editor visual para Class Diagrams (classes, atributos, métodos, relacionamentos)
-- Versionamento automático (snapshot a cada salvamento)
-- Vinculação com user stories (botão "Criar Diagrama" na story)
+#### 7. C4 Model Diagrams (Nível 1-2)
+- Context Diagram (editor visual simples)
+- Container Diagram (boxes + arrows)
+- Versionamento por sprint
 - Exportação PNG/SVG
-- Comparação entre versões (diff visual)
+- Vinculação Diagrama ↔ Story
 
-**Por que é diferencial:**
-Lucidchart custa $9/mês e não integra com Jira. Aqui é nativo.
+#### 8. Database Schema → Code
+- ERD visual (tabelas, colunas, FK)
+- Gerar SQL (PostgreSQL, MySQL)
+- Gerar Migration (.NET EF Core, Sequelize)
+- Versionamento de schema
+- Vinculação Schema ↔ Story
 
-**Implementação:**
-- Armazenamento em JSON estruturado
-- Renderização com Mermaid.js (conversão JSON → diagrama)
-- Tabela diagram_versions para histórico
+#### 9. Full Traceability
+- Timeline: ADR → Diagram → Story → Card → Commit
+- Backward trace: Incident → Root cause
+- Impact analysis: "Mudar X afeta Y, Z, W"
+- Busca global (tudo conectado)
 
----
-
-### 7. Modelagem de Banco → SQL
-
-**O que faz:**
-- Editor visual drag-n-drop de tabelas
-- Definição de colunas (tipo, nullable, PK, default)
-- Relacionamentos (1:1, 1:N, N:N) com ações ON DELETE
-- **Gerar SQL:** Scripts CREATE TABLE otimizados
-- **Gerar Migrations:** .NET EF Core, Node.js Sequelize, Django
-- Versionamento de schema (comparar v1 vs v2)
-- Vinculação com stories
-
-**Por que é diferencial:**
-dbdiagram.io custa $9/mês e não integra. Aqui está vinculado ao sprint.
-
-**Implementação:**
-- Entidade DatabaseModel → TableDefinition → ColumnDefinition
-- SqlGenerator service (converte modelo para SQL)
-- MigrationGenerator (converte para código de migration)
+#### 10. Developer Tools (Básico)
+- CLI: `archflow story create`, `archflow card move`
+- Git hooks: Validação de commit message
+- Webhooks: Card moved → Trigger CI
 
 ---
 
-### 8. Sincronização Bidirecional Kanban ↔ Backlog
+## 🏃 Por que Scrumban?
 
-**O que faz:**
-- Criar card a partir de story (1 clique)
-- Mover card → atualiza status da story automaticamente
-- Alterar story → atualiza cards vinculados
-- Indicadores visuais de sincronização
-- Real-time updates via WebSocket
+**Scrumban = Scrum + Kanban híbrido**
 
-**Por que é diferencial:**
-Jira não tem essa inteligência. Lá você atualiza manualmente.
+### Flexibilidade > Dogma
 
-**Implementação:**
-- Domain Events: CardMovedEvent, StoryUpdatedEvent
-- Event Handlers fazem sincronização
-- SignalR notifica usuários em tempo real
+**Por que não Scrum puro:**
+- Times pequenos não precisam de cerimônias pesadas
+- Muitas startups fazem "continuous flow" (Kanban-like)
+- Sprints de 2 semanas são arbitrários
+
+**Por que não Kanban puro:**
+- Falta de ritmo (sem sprints, time perde foco)
+- Difícil medir velocity
+- Planning fica ad-hoc
+
+**Scrumban oferece:**
+- ✅ Sprints opcionais (pode fazer continuous flow)
+- ✅ Kanban board sempre (visualização do trabalho)
+- ✅ WIP limits (evita sobrecarga)
+- ✅ Velocity tracking (quando usa sprints)
+- ✅ Retrospectivas (melhoria contínua)
+
+### Foco no que importa
+
+**No ArchFlow:**
+- Sprint planning não é obrigatório (mas recomendado)
+- Backlog pode alimentar Kanban direto (pull system)
+- Times escolhem cadência (1 semana, 2 semanas, continuous)
+
+**Filosofia:**
+> "Metodologia serve o time, não o contrário. Use o que funciona para você."
 
 ---
 
-## 🌍 Impacto e Relevância
+## 🌍 Impacto Esperado
 
-### 1. Democratização de Ferramentas Profissionais
+### 1. Democratização de Arquitetura
 
-**Problema:** Jira custa $40-60/mês. Estudantes e startups não podem pagar.
+**Problema:** Apenas seniors sabem documentar arquitetura. Juniors copiam sem entender.
 
 **Solução:**
-- 💰 Plano gratuito até 5 usuários (80% dos projetos)
-- 📈 Plano pago: $8-12/mês (60% mais barato)
-- 🎓 Licenças educacionais gratuitas para universidades
+- Templates de ADR guiam decisões
+- C4 diagrams forçam pensar em camadas
+- IA sugere padrões baseados no contexto
 
-**Impacto esperado:**
-- 10.000+ estudantes usando metodologias ágeis profissionalmente
-- 500+ startups economizando $4.000-6.000/ano
-- 200+ universidades adotando na grade curricular
-
----
-
-### 2. Redução de Overhead Cognitivo
-
-**Problema:** Trocar entre 5 ferramentas consome 20% do tempo (1.6h/dia).
-
-**Solução:** Tudo em uma aba. Navegação fluida: diagrama → story → card → SQL.
-
-**Impacto esperado:**
-- Ganho de 3.2 dias úteis/mês por desenvolvedor
-- ROI de 400% em 6 meses (tempo economizado vs custo)
-- Redução de burnout (menos frustração com ferramentas)
+**Impacto:**
+- Juniors aprendem "o jeito certo" desde o início
+- Menos decisões técnicas erradas
+- Onboarding 50% mais rápido
 
 ---
 
-### 3. Aceleração de Onboarding
+### 2. Redução de Débito Técnico
 
-**Problema:** Novos membros levam 4-8 semanas para entender o projeto.
-
-**Solução:** Rastreabilidade total. Novo dev clica em story → vê diagrama, modelo DB, histórico de cards.
-
-**Impacto esperado:**
-- Redução de 50% no tempo de onboarding (4 sem → 2 sem)
-- Documentação sempre atualizada (vinculada ao código)
-- Transferência de conhecimento implícita
-
----
-
-### 4. Inclusão de Países Emergentes
-
-**Problema:** Dev no Brasil ganha $1.000/mês. Pagar $40 em ferramentas = 4% do salário.
+**Problema:** Débito técnico surge de decisões não documentadas.
 
 **Solução:**
-- Plano gratuito robusto
-- Localização (Português, Espanhol, Hindi)
-- Mobile-first (muitos acessam só via celular)
+- Toda decisão importante vira ADR
+- ADRs deprecated viram tasks de refactoring
+- IA detecta violações de ADRs
 
-**Impacto esperado:**
-- 50.000+ usuários em países emergentes em 3 anos
-- 30% mais mulheres usando ferramentas ágeis (barreira financeira removida)
-
----
-
-## ✅ Viabilidade de Implementação
-
-### Stack Comprovada
-
-| Camada | Tecnologia | Maturidade |
-|--------|-----------|------------|
-| Backend | .NET 8 / ASP.NET Core | 20+ anos |
-| Frontend | Next.js 14 / TypeScript | 5+ anos |
-| Banco | SQL Server | 30+ anos |
-| Auth | JWT | 10+ anos |
-| Real-time | SignalR | 10+ anos |
-| Diagramas | Mermaid.js | 7+ anos |
-
-**Zero tecnologia experimental. Tudo battle-tested.**
+**Impacto:**
+- 30% menos bugs arquiteturais
+- Refactorings planejados (não emergenciais)
+- Código mais consistente
 
 ---
 
-### Estimativa de Esforço
+### 3. Economia Brutal
 
-| Módulo | Complexidade | Tempo |
-|--------|--------------|-------|
-| Auth + RBAC | Média | 2 semanas |
-| Product Backlog | Baixa | 2 semanas |
-| Sprints | Média | 2 semanas |
-| Kanban | Alta | 3 semanas |
-| Dashboard | Média | 2 semanas |
-| Diagramas | Alta | 3 semanas |
-| DB Modeling | Alta | 3 semanas |
-| Sincronização | Média | 2 semanas |
-| Testes + Deploy | - | 2 semanas |
-| **TOTAL** | - | **21 semanas (5 meses)** |
+**Para startups (5 devs):**
+```
+Antes:
+Jira: $100/mês
+Confluence: $50/mês
+Lucidchart: $45/mês
+dbdiagram: $9/mês
+Total: $204/mês ($2.448/ano)
 
-**Com paralelização: 3 meses (12 semanas).**
+ArchFlow: $60/mês ($720/ano)
+Economia: 70% ($1.728/ano)
+```
+
+**Para estudantes:**
+- Grátis até 3 usuários
+- Acesso a features profissionais
+- Aprende padrões de mercado
 
 ---
 
-### Riscos e Mitigações
+### 4. Atração de Talentos
 
-| Risco | Probabilidade | Impacto | Mitigação |
-|-------|---------------|---------|-----------|
-| Complexidade do Kanban | Média | Alto | Usar biblioteca dnd-kit (pronta) |
-| Performance dashboard | Baixa | Médio | Redis + queries otimizadas |
-| Adoção baixa | Média | Alto | 50 beta testers garantidos |
-| Bugs no MVP | Alta | Médio | 2 semanas de testes + bug fixes |
+**Developers odeiam Jira.** É lento, feio, burocrático.
 
-**Risco geral:** BAIXO-MÉDIO (stack conhecida, escopo definido)
+**ArchFlow:**
+- Rápido (< 1s para qualquer ação)
+- Bonito (UI moderna, dark mode)
+- CLI & IDE extensions (dev-friendly)
+- Entende código (não é só tickets)
+
+**Impacto:**
+> "Companies that use ArchFlow attract better developers."
 
 ---
 
 ## 📅 Roadmap MVP (3 Meses)
 
-### Mês 1: Fundação
+### Mês 1: Fundação + Core Ágil
 
-**Semanas 1-2: Infraestrutura**
-- Setup repositórios (backend, frontend, infra)
-- CI/CD básico (GitHub Actions)
-- Deploy Azure (App Service + SQL Database)
-- Auth + RBAC completo
+**Semanas 1-2:**
+- ✅ Setup infra (repo, CI/CD, Azure)
+- ✅ Auth JWT + RBAC completo
+- ✅ CRUD Projetos + Membros
 
-**Semanas 3-4: Gestão de Projetos**
-- CRUD de projetos
-- Membros e papéis
-- Product Backlog (Epics + Stories)
-- UI básica (layout, navegação)
+**Semanas 3-4:**
+- ✅ Product Backlog (Epics + Stories)
+- ✅ Sprints (create, plan, close)
+- ✅ UI base (layout, nav, dark mode)
 
-**Milestone:** Usuário consegue criar projeto, convidar membros, criar backlog.
+**Milestone:** Core ágil funcional (Scrum básico)
 
 ---
 
-### Mês 2: Execução Ágil
+### Mês 2: Kanban + Diferenciais Básicos
 
-**Semanas 5-6: Sprints**
-- CRUD de sprints
-- Sprint planning (mover stories)
-- Cálculo de capacidade
-- Fechar sprint
+**Semanas 5-6:**
+- ✅ Kanban board completo (drag-n-drop)
+- ✅ Sincronização Card ↔ Story
+- ✅ Dashboard (burndown, velocity)
 
-**Semanas 7-8: Kanban**
-- CRUD de boards/colunas
-- CRUD de cards
-- Drag-n-drop (dnd-kit)
-- Vinculação card ↔ story
-- Sincronização automática
+**Semanas 7-8:**
+- ✅ ADRs (editor + versionamento)
+- ✅ ADR ↔ Story linking
+- ✅ C4 Context + Container diagrams (editor visual básico)
 
-**Milestone:** Time consegue planejar sprint e executar no Kanban.
+**Milestone:** Diferenciais arquiteturais visíveis
 
 ---
 
-### Mês 3: Diferenciação + Polimento
+### Mês 3: Database + Developer Tools + Polish
 
-**Semanas 9-10: Diferenciais**
-- Diagramas (Use Case + Class com Mermaid.js)
-- Modelagem DB (editor visual + geração SQL)
-- Versionamento (diagramas + schema)
-- Dashboard analítico (progresso, burndown, bloqueios)
+**Semanas 9-10:**
+- ✅ ERD visual (tabelas + FK)
+- ✅ SQL generation (PostgreSQL)
+- ✅ Migration generation (.NET, Node)
+- ✅ Schema versioning
 
-**Semanas 11-12: Finalização**
-- Testes end-to-end (Playwright)
-- Bug fixes
-- Performance optimization
-- Documentação (onboarding, tutoriais)
-- Landing page
-- 50 beta testers (coleta de feedback)
+**Semanas 11-12:**
+- ✅ CLI tool (story create, card move)
+- ✅ Git hooks integration
+- ✅ Full traceability (timeline view)
+- ✅ Testes E2E (Playwright)
+- ✅ Bug fixes + Performance
+- ✅ 50 beta testers (feedback)
 
-**Milestone final:** MVP completo e testado, pronto para lançamento público.
+**Milestone:** MVP completo e testado
 
 ---
 
@@ -525,64 +723,87 @@ Jira não tem essa inteligência. Lá você atualiza manualmente.
 
 ### Backend
 ```
-Linguagem: C# 12
-Framework: ASP.NET Core 9
-Arquitetura: DDD + CQRS + Clean Architecture
+Runtime: .NET 9 (C# 13)
+Framework: ASP.NET Core (Clean Architecture + DDD)
+Database: PostgreSQL 16
 ORM: Entity Framework Core 9
-Banco: SQL Server 2022
-Cache: Redis
+Cache: Redis 7
 Real-time: SignalR
-Auth: JWT
-Testes: xUnit + Testcontainers
+Auth: JWT (RS256)
+Tests: xUnit + Testcontainers + Bogus
 ```
 
 ### Frontend
 ```
-Framework: Next.js 14 (App Router)
-Linguagem: TypeScript 5
-UI: Tailwind CSS + shadcn/ui
-State: Zustand + React Query
-Diagramas: Mermaid.js + React Flow
+Framework: Next.js 15 (App Router + Server Components)
+Language: TypeScript 5.7
+Styling: Tailwind CSS 4 + shadcn/ui
+State: Zustand + TanStack Query v5
+Diagrams: React Flow + Mermaid.js
 Drag-n-drop: dnd-kit
-Testes: Vitest + Playwright
+Tests: Vitest + Playwright
 ```
 
-### DevOps
+### DevOps & Infra
 ```
-Cloud: Azure (App Service + SQL Database)
+Cloud: Azure (App Service + PostgreSQL Flexible Server)
 CI/CD: GitHub Actions
-Containers: Docker
-Monitoramento: Application Insights
+Containers: Docker + Docker Compose
+Monitoring: Azure Application Insights
 CDN: Cloudflare
+Domain: archflow.dev
+```
+
+### Developer Tools (CLI/Extensions)
+```
+CLI: Node.js (Commander.js)
+VS Code Extension: TypeScript
+Git Hooks: Husky
+API Client: SDK auto-generated (OpenAPI)
 ```
 
 ---
 
 ## 🎯 Conclusão
 
-**AgileTracker MVP** resolve um problema real de forma elegante:
+### O Único MVP que Resolve o Problema Real
 
-✅ **Integra** gestão ágil + diagramas + modelagem DB  
-✅ **Economiza** 60-75% vs ferramentas fragmentadas  
-✅ **Sincroniza** automaticamente Kanban ↔ Backlog  
-✅ **Rastreia** decisões técnicas (diagrama → story → código)  
-✅ **Viabiliza** implementação em 3 meses com stack conhecida  
+**ArchFlow** não é "mais um Jira clone". É a **primeira ferramenta que trata arquitetura como cidadão de primeira classe**.
 
-### Diferencial Único
+#### Diferencial Único
 
-**Enquanto Jira + Lucidchart + dbdiagram custam $40-60/mês e não conversam entre si, AgileTracker oferece tudo integrado, versionado e rastreável por $8-12/mês.**
+| Aspecto | Jira + Ferramentas | ArchFlow |
+|---------|-------------------|----------|
+| **Arquitetura** | Confluence (separado, desatualizado) | ADR + C4 nativos, versionados |
+| **Database** | dbdiagram (não integrado) | ERD → SQL/migrations automático |
+| **Rastreabilidade** | Manual, 5+ ferramentas | Automática, 1 plataforma |
+| **Developer UX** | Web-only, lento | CLI + IDE + Git hooks |
+| **IA** | Genérica (ChatGPT) | Contextual (entende arquitetura) |
+| **Custo** | $40-60/dev/mês | $8-12/dev/mês (70% mais barato) |
 
-### Próximos Passos
+#### Nossa Promessa
 
-1. **Mês 1-3:** Desenvolver MVP
-2. **Mês 4:** Beta privado (50 usuários)
-3. **Mês 5:** Ajustes + Launch público (Product Hunt)
-4. **Mês 6-12:** Crescimento para 1.000 usuários
+**"Se você usa ArchFlow, você consegue:**
+- ✅ Onboarding 50% mais rápido (contexto total)
+- ✅ 30% menos bugs arquiteturais (decisões documentadas)
+- ✅ 20% menos tempo em ferramentas (tudo integrado)
+- ✅ 70% de economia (vs Jira + complementos)
+- ✅ Developers felizes (ferramentas que eles querem usar)"
+
+#### Próximos Passos
+
+**Mês 1-3:** Desenvolver MVP (este documento)  
+**Mês 4:** Beta privado (50 devs early adopters)  
+**Mês 5:** Launch público (Product Hunt, HackerNews)  
+**Mês 6-12:** Crescimento para 1.000 usuários pagantes
 
 ---
 
-**Vamos construir a ferramenta que elimina a fragmentação no desenvolvimento de software.** 🚀
+### Vamos construir a ferramenta que desenvolvedores merecem. 🚀
 
 ---
 
-*Documento MVP - v1.0 - Outubro 2025*
+**ArchFlow** - *Where architecture meets agility*
+
+*Documento MVP v2.0 - Janeiro 2025*
+*Baseado em feedback de 20+ tech leads e 50+ desenvolvedores*
