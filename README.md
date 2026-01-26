@@ -806,4 +806,3 @@ API Client: SDK auto-generated (OpenAPI)
 **ArchFlow** - *Where architecture meets agility*
 
 *Documento MVP v2.0 - Janeiro 2025*
-*Baseado em feedback de 20+ tech leads e 50+ desenvolvedores*
